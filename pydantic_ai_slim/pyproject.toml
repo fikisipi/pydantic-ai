@@ -76,6 +76,7 @@ groq = ["groq>=0.25.0"]
 mistral = ["mistralai>=1.9.10"]
 bedrock = ["boto3>=1.39.0"]
 huggingface = ["huggingface-hub[inference]>=0.33.5"]
+azure-agents = ["azure-ai-projects>=1.0.0b4", "azure-identity>=1.18.0"]
 # Tools
 duckduckgo = ["ddgs>=9.0.0"]
 tavily = ["tavily-python>=0.5.0"]

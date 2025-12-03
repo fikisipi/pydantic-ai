@@ -65,6 +65,10 @@ KnownModelName = TypeAliasType(
         'anthropic:claude-opus-4-20250514',
         'anthropic:claude-sonnet-4-0',
         'anthropic:claude-sonnet-4-20250514',
+        'azure-agents:gpt-4o',
+        'azure-agents:gpt-4o-mini',
+        'azure-agents:gpt-4',
+        'azure-agents:gpt-35-turbo',
         'bedrock:amazon.titan-tg1-large',
         'bedrock:amazon.titan-text-lite-v1',
         'bedrock:amazon.titan-text-express-v1',
@@ -773,6 +777,10 @@ def infer_model(model: Model | KnownModelName | str) -> Model:  # noqa: C901
         from .huggingface import HuggingFaceModel
 
         return HuggingFaceModel(model_name, provider=provider)
+    elif provider == 'azure-agents':
+        from .azure_agents import AzureAgentsModel
+
+        return AzureAgentsModel(model_name)
     else:
         raise UserError(f'Unknown model: {model}')  # pragma: no cover
 
